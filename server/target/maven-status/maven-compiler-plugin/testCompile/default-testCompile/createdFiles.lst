@@ -1,0 +1,3 @@
+com\chatflow\server\HealthControllerTest.class
+com\chatflow\server\ChatFlowServerApplicationTest.class
+com\chatflow\server\handler\ChatWebSocketHandlerTest.class
