@@ -51,10 +51,14 @@ Then send a message:
    ```
 5. Run:
    ```bash
-   nohup java -jar server-1.0.0.jar &
+   java -jar target/server-1.0.0.jar
    ```
 6. Verify:
    ```bash
    curl http://<EC2-IP>:8080/health
    wscat -c ws://<EC2-IP>:8080/chat/1
+   ```
+7. HealthCheck:
+   ```
+   Invoke-RestMethod http://54.184.109.66:8080/health
    ```

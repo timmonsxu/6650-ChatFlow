@@ -28,6 +28,7 @@ public class ChatWebSocketHandler extends TextWebSocketHandler {
     public ChatWebSocketHandler() {
         this.mapper = new ObjectMapper();
         this.mapper.registerModule(new JavaTimeModule());
+        this.mapper.disable(com.fasterxml.jackson.databind.SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
     }
 
     @Override
