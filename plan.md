@@ -25,30 +25,27 @@
 
 ## Tasks & Progress
 
-### Phase 1: Server
-- [ ] Initialize Spring Boot project with WebSocket starter
-- [ ] Implement WebSocket endpoint `/chat/{roomId}` (accept connection, parse JSON, validate, echo back)
-- [ ] Implement message validation (userId, username, message, timestamp, messageType)
-- [ ] Implement `/health` REST endpoint
-- [ ] Local testing with wscat
-- [ ] Deploy to EC2 (install Java, configure security group for port 8080 + SSH)
-- [ ] Verify remote WebSocket connectivity
+### Phase 1: Server ✅
+- [x] Initialize Spring Boot project with WebSocket starter
+- [x] Implement WebSocket endpoint `/chat/{roomId}` (accept connection, parse JSON, validate, echo back)
+- [x] Implement message validation (userId, username, message, timestamp, messageType)
+- [x] Implement `/health` REST endpoint
+- [x] Unit tests (22 test cases)
+- [x] Local testing with PowerShell script
+- [x] Deploy to EC2 (install Java, configure security group for port 8080 + SSH)
+- [x] Verify remote WebSocket connectivity
 
-### Phase 2: Client Part 1
-- [ ] Set up pure Java project with Java-WebSocket dependency
-- [ ] Implement MessageGenerator thread (single thread, produces 500K messages into BlockingQueue)
-  - userId: random 1-100000
-  - username: "user{userId}"
-  - message: random from 50 predefined messages
-  - roomId: random 1-20
-  - messageType: 90% TEXT, 5% JOIN, 5% LEAVE
-  - timestamp: current time
-- [ ] Implement Sender threads with WebSocket connections
-- [ ] Warmup phase: 32 threads × 1000 messages each
-- [ ] Main phase: configurable thread count, send remaining messages
-- [ ] Retry logic: up to 5 retries with exponential backoff
-- [ ] Output: successful/failed count, wall time, throughput, connection stats
-- [ ] Little's Law analysis: measure single-message RTT, predict max throughput
+### Phase 2: Client Part 1 ✅
+- [x] Set up pure Java project with Java-WebSocket dependency
+- [x] Implement MessageGenerator thread (single thread, produces 500K messages into BlockingQueue)
+- [x] Implement Sender threads with persistent WebSocket connections
+- [x] Warmup phase: 32 threads × 1000 messages each
+- [x] Main phase: 128 threads, send remaining 468K messages
+- [x] Retry logic: up to 5 retries with exponential backoff
+- [x] Output: successful/failed count, wall time, throughput, connection stats
+- [x] Unit tests (15 test cases) + integration tests
+- [x] Little's Law analysis: RTT ≈ 20ms, predicted ~6400 msg/s, actual 6291 msg/s
+- [x] EC2 test: 500K messages, 0 failures, 5294 msg/s overall, 94s total
 
 ### Phase 3: Client Part 2
 - [ ] Add per-message latency tracking (timestamp before send, timestamp on ack)
