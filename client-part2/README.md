@@ -14,9 +14,6 @@ mvn clean package -DskipTests
 ```bash
 # Against EC2 (default)
 java -jar target/client-part2-1.0.0.jar
-
-# Against local server
-java -jar target/client-part2-1.0.0.jar ws://localhost:8080
 ```
 
 ## Output

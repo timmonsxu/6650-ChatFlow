@@ -47,24 +47,26 @@
 - [x] Little's Law analysis: RTT ≈ 20ms, predicted ~6400 msg/s, actual 6291 msg/s
 - [x] EC2 test: 500K messages, 0 failures, 5294 msg/s overall, 94s total
 
-### Phase 3: Client Part 2
-- [ ] Add per-message latency tracking (timestamp before send, timestamp on ack)
-- [ ] Write CSV: {timestamp, messageType, latency, statusCode, roomId}
-- [ ] Calculate stats: mean, median, p95, p99, min, max
-- [ ] Throughput per room
-- [ ] Message type distribution
+### Phase 3: Client Part 2 ✅
+- [x] Add per-message latency tracking (timestamp before send, timestamp on ack)
+- [x] Write CSV: {timestamp, messageType, latency, statusCode, roomId}
+- [x] Calculate stats: mean, median, p95, p99, min, max
+- [x] Throughput per room
+- [x] Message type distribution
+- [x] EC2 test: 500K messages, 0 failures
 
-### Phase 4: Visualization
-- [ ] Throughput over time line chart (10-second buckets)
+### Phase 4: Visualization ✅
+- [x] Throughput over time line chart (10-second buckets) via Python matplotlib
+- [x] Generated throughput_chart.png and throughput_chart.pdf
 
 ### Phase 5: Documentation & Submission
-- [ ] Design Document (2 pages max)
+- [x] Design Document (2 pages max) → results/design-document.md
   - Architecture diagram
   - Major classes and relationships
   - Threading model explanation
   - WebSocket connection management strategy
   - Little's Law calculations vs actual results
-- [ ] README for each module
+- [x] README for each module (server, client-part1, client-part2)
 - [ ] Screenshots: Part 1 output, Part 2 output, EC2 console
 - [ ] Compile PDF and submit to Canvas
 
